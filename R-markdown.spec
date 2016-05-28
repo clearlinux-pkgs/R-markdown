@@ -4,20 +4,30 @@
 #
 Name     : R-markdown
 Version  : 0.7.7
-Release  : 15
+Release  : 16
 URL      : http://cran.r-project.org/src/contrib/markdown_0.7.7.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/markdown_0.7.7.tar.gz
 Summary  : 'Markdown' Rendering for R
 Group    : Development/Tools
 License  : GPL-2.0 MIT
+Requires: R-markdown-lib
 Requires: R-mime
-BuildRequires : R-knitr
+Requires: R-stringr
 BuildRequires : R-mime
+BuildRequires : R-stringr
 BuildRequires : clr-R-helpers
 
 %description
 Markdown rendering for R
 =============================================================================
+
+%package lib
+Summary: lib components for the R-markdown package.
+Group: Libraries
+
+%description lib
+lib components for the R-markdown package.
+
 
 %prep
 %setup -q -c -n markdown
@@ -27,13 +37,21 @@ Markdown rendering for R
 %install
 rm -rf %{buildroot}
 export LANG=C
+export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
 R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library markdown
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library markdown
 
@@ -76,9 +94,12 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/markdown/include/markdown.h
 /usr/lib64/R/library/markdown/include/markdown_rstubs.c
 /usr/lib64/R/library/markdown/include/markdown_rstubs.h
-/usr/lib64/R/library/markdown/libs/markdown.so
 /usr/lib64/R/library/markdown/libs/symbols.rds
 /usr/lib64/R/library/markdown/resources/markdown.css
 /usr/lib64/R/library/markdown/resources/markdown.html
 /usr/lib64/R/library/markdown/resources/mathjax.html
 /usr/lib64/R/library/markdown/resources/r_highlight.html
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/R/library/markdown/libs/markdown.so
