@@ -4,7 +4,7 @@
 #
 Name     : R-markdown
 Version  : 0.7.7
-Release  : 18
+Release  : 19
 URL      : http://cran.r-project.org/src/contrib/markdown_0.7.7.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/markdown_0.7.7.tar.gz
 Summary  : 'Markdown' Rendering for R
