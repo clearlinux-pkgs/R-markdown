@@ -4,13 +4,15 @@
 #
 Name     : R-markdown
 Version  : 0.7.7
-Release  : 23
+Release  : 24
 URL      : http://cran.r-project.org/src/contrib/markdown_0.7.7.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/markdown_0.7.7.tar.gz
 Summary  : 'Markdown' Rendering for R
 Group    : Development/Tools
 License  : GPL-2.0 MIT
 Requires: R-markdown-lib
+Requires: R-mime
+BuildRequires : R-mime
 BuildRequires : clr-R-helpers
 
 %description
@@ -30,11 +32,11 @@ lib components for the R-markdown package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1484543343
+export SOURCE_DATE_EPOCH=1488814668
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1484543343
+export SOURCE_DATE_EPOCH=1488814668
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
