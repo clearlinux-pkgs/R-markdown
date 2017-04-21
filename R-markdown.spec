@@ -4,7 +4,7 @@
 #
 Name     : R-markdown
 Version  : 0.8
-Release  : 27
+Release  : 28
 URL      : http://cran.r-project.org/src/contrib/markdown_0.8.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/markdown_0.8.tar.gz
 Summary  : 'Markdown' Rendering for R
@@ -33,11 +33,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492695019
+export SOURCE_DATE_EPOCH=1492801169
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1492695019
+export SOURCE_DATE_EPOCH=1492801169
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -64,6 +64,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/markdown/DESCRIPTION
 /usr/lib64/R/library/markdown/INDEX
 /usr/lib64/R/library/markdown/Meta/Rd.rds
+/usr/lib64/R/library/markdown/Meta/features.rds
 /usr/lib64/R/library/markdown/Meta/hsearch.rds
 /usr/lib64/R/library/markdown/Meta/links.rds
 /usr/lib64/R/library/markdown/Meta/nsInfo.rds
