@@ -4,13 +4,15 @@
 #
 Name     : R-markdown
 Version  : 0.9
-Release  : 51
+Release  : 52
 URL      : https://cran.r-project.org/src/contrib/markdown_0.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/markdown_0.9.tar.gz
 Summary  : 'Markdown' Rendering for R
 Group    : Development/Tools
 License  : GPL-2.0 MIT
 Requires: R-markdown-lib = %{version}-%{release}
+Requires: R-mime
+BuildRequires : R-mime
 BuildRequires : buildreq-R
 
 %description
@@ -33,10 +35,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549256806
+export SOURCE_DATE_EPOCH=1549272793
 
 %install
-export SOURCE_DATE_EPOCH=1549256806
+export SOURCE_DATE_EPOCH=1549272793
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
