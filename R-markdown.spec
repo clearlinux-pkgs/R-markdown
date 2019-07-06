@@ -4,7 +4,7 @@
 #
 Name     : R-markdown
 Version  : 1.0
-Release  : 64
+Release  : 65
 URL      : https://cran.r-project.org/src/contrib/markdown_1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/markdown_1.0.tar.gz
 Summary  : Render Markdown with the C Library 'Sundown'
