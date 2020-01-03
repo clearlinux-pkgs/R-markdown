@@ -4,7 +4,7 @@
 #
 Name     : R-markdown
 Version  : 1.1
-Release  : 68
+Release  : 69
 URL      : https://cran.r-project.org/src/contrib/markdown_1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/markdown_1.1.tar.gz
 Summary  : Markdown Rendering for R
