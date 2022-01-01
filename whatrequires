@@ -1,15 +1,4 @@
 # This file contains recursive sources that require this package
-R-cellranger
-R-config
-R-corrplot
-R-emulator
-R-gclus
-R-googleVis
-R-import
-R-knitr
-R-lazyeval
 R-leaflet
 R-roxygen2
-R-rstantools
-R-seroincidence
 R-shinystan
