@@ -5,7 +5,7 @@
 #
 Name     : R-markdown
 Version  : 1.6
-Release  : 98
+Release  : 99
 URL      : https://cran.r-project.org/src/contrib/markdown_1.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/markdown_1.6.tar.gz
 Summary  : Render Markdown with 'commonmark'
