@@ -4,13 +4,13 @@
 # Using build pattern: R
 #
 Name     : R-markdown
-Version  : 1.6
-Release  : 99
-URL      : https://cran.r-project.org/src/contrib/markdown_1.6.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/markdown_1.6.tar.gz
+Version  : 1.7
+Release  : 100
+URL      : https://cran.r-project.org/src/contrib/markdown_1.7.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/markdown_1.7.tar.gz
 Summary  : Render Markdown with 'commonmark'
 Group    : Development/Tools
-License  : GPL-2.0
+License  : GPL-2.0 MIT
 Requires: R-markdown-license = %{version}-%{release}
 Requires: R-commonmark
 Requires: R-xfun
@@ -23,7 +23,7 @@ BuildRequires : buildreq-R
 
 %description
 the 'commonmark' package. It also supports features that are missing in
-    'commonmark', such as raw HTML/'LaTeX' blocks, 'LaTeX' math, superscripts,
+    'commonmark', such as raw HTML/LaTeX blocks, LaTeX math, superscripts,
     subscripts, footnotes, element attributes, appendices, and fenced 'Divs'.
     With additional JavaScript and CSS, it can also create HTML slides and
     articles.
@@ -38,16 +38,19 @@ license components for the R-markdown package.
 
 %prep
 %setup -q -n markdown
+pushd ..
+cp -a markdown buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680912221
+export SOURCE_DATE_EPOCH=1684250968
 
 %install
-export SOURCE_DATE_EPOCH=1680912221
+export SOURCE_DATE_EPOCH=1684250968
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-markdown
 cp %{_builddir}/markdown/inst/COPYING %{buildroot}/usr/share/package-licenses/R-markdown/77f89ea86902ea35fd3fc415dd5942fc0a289b5d || :
@@ -87,12 +90,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
 /usr/lib64/R/library/markdown/COPYING
 /usr/lib64/R/library/markdown/DESCRIPTION
 /usr/lib64/R/library/markdown/INDEX
+/usr/lib64/R/library/markdown/LICENSE
 /usr/lib64/R/library/markdown/Meta/Rd.rds
 /usr/lib64/R/library/markdown/Meta/features.rds
 /usr/lib64/R/library/markdown/Meta/hsearch.rds
