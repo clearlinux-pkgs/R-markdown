@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-markdown
-Version  : 1.8
-Release  : 102
-URL      : https://cran.r-project.org/src/contrib/markdown_1.8.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/markdown_1.8.tar.gz
+Version  : 1.9
+Release  : 103
+URL      : https://cran.r-project.org/src/contrib/markdown_1.9.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/markdown_1.9.tar.gz
 Summary  : Render Markdown with 'commonmark'
 Group    : Development/Tools
 License  : GPL-2.0 MIT
@@ -47,21 +47,21 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692895513
+export SOURCE_DATE_EPOCH=1696264931
 
 %install
-export SOURCE_DATE_EPOCH=1692895513
+export SOURCE_DATE_EPOCH=1696264931
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-markdown
 cp %{_builddir}/markdown/inst/COPYING %{buildroot}/usr/share/package-licenses/R-markdown/77f89ea86902ea35fd3fc415dd5942fc0a289b5d || :
-export LANG=C.UTF-8
-export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
-export AR=gcc-ar
-export RANLIB=gcc-ranlib
-export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
+LANG=C.UTF-8
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -flto -fno-semantic-interposition "
+FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -flto -fno-semantic-interposition "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -flto -fno-semantic-interposition "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -flto -fno-semantic-interposition "
+AR=gcc-ar
+RANLIB=gcc-ranlib
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
 
 mkdir -p ~/.R
