@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-markdown
-Version  : 1.9
-Release  : 103
-URL      : https://cran.r-project.org/src/contrib/markdown_1.9.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/markdown_1.9.tar.gz
+Version  : 1.10
+Release  : 104
+URL      : https://cran.r-project.org/src/contrib/markdown_1.10.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/markdown_1.10.tar.gz
 Summary  : Render Markdown with 'commonmark'
 Group    : Development/Tools
 License  : GPL-2.0 MIT
@@ -47,10 +47,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1696264931
+export SOURCE_DATE_EPOCH=1696952961
 
 %install
-export SOURCE_DATE_EPOCH=1696264931
+export SOURCE_DATE_EPOCH=1696952961
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-markdown
 cp %{_builddir}/markdown/inst/COPYING %{buildroot}/usr/share/package-licenses/R-markdown/77f89ea86902ea35fd3fc415dd5942fc0a289b5d || :
