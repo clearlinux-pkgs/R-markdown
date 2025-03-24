@@ -1,5 +1,5 @@
 PKG_NAME := R-markdown
-URL = https://cran.r-project.org/src/contrib/markdown_1.13.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/markdown_2.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
